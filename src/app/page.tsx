@@ -2,7 +2,8 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@/features/auth/context/AuthContext';
+import { PATHS } from '@/routes/paths';
 
 export default function Home() {
   const { user, isLoading } = useAuth();
@@ -11,9 +12,9 @@ export default function Home() {
   useEffect(() => {
     if (!isLoading) {
       if (user) {
-        router.push('/tasks');
+        router.push(PATHS.TASKS);
       } else {
-        router.push('/auth/login');
+        router.push(PATHS.AUTH.LOGIN);
       }
     }
   }, [user, isLoading, router]);
