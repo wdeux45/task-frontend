@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📋 Task Manager - Frontend
 
-## Getting Started
+Aplicación web moderna para gestión de tareas construida con Next.js 15, TypeScript y Tailwind CSS.
 
-First, run the development server:
+## 🚀 Tecnologías
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework**: Next.js 15 (App Router)
+- **Lenguaje**: TypeScript
+- **Estilos**: Tailwind CSS
+- **Validación**: Zod + React Hook Form
+- **HTTP Client**: Axios
+- **Autenticación**: JWT (Context API)
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── app/
+│   ├── auth/
+│   │   ├── login/          # Página de inicio de sesión
+│   │   └── register/       # Página de registro
+│   ├── tasks/              # Gestión de tareas
+│   ├── layout.tsx          # Layout principal
+│   └── page.tsx            # Página de inicio
+├── contexts/
+│   └── AuthContext.tsx     # Contexto de autenticación
+├── lib/
+│   └── api.ts              # Configuración de Axios
+└── types/
+    └── index.ts            # Tipos TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Instalación
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Instalar dependencias**:
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Configurar variables de entorno**:
+Crear archivo `.env.local` en la raíz:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3001/api
+```
 
-## Learn More
+3. **Ejecutar en modo desarrollo**:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+La aplicación estará disponible en [http://localhost:3000](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Características
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Autenticación
+- ✅ Registro de usuarios con validación
+- ✅ Inicio de sesión con JWT
+- ✅ Protección de rutas privadas
+- ✅ Persistencia de sesión (localStorage)
 
-## Deploy on Vercel
+### Gestión de Tareas
+- ✅ Crear tareas con título, descripción y estado
+- ✅ Editar tareas existentes
+- ✅ Eliminar tareas con confirmación
+- ✅ Estados: Pendiente, En Progreso, Completada
+- ✅ Interfaz moderna con animaciones
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Diseño
+- ✅ Diseño responsive y moderno
+- ✅ Gradientes y animaciones fluidas
+- ✅ Iconos SVG integrados
+- ✅ Mensajes de error/éxito intuitivos
+- ✅ Interfaz en español
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 Scripts Disponibles
+
+```bash
+npm run dev      # Ejecutar en modo desarrollo
+npm run build    # Compilar para producción
+npm run start    # Ejecutar build de producción
+npm run lint     # Ejecutar linter
+```
+
+## 🔗 Endpoints del Backend
+
+La aplicación se conecta al backend en `http://localhost:3001/api`:
+
+- `POST /auth/register` - Registro de usuario
+- `POST /auth/login` - Inicio de sesión
+- `GET /tasks` - Obtener todas las tareas
+- `POST /tasks` - Crear nueva tarea
+- `PUT /tasks/:id` - Actualizar tarea
+- `DELETE /tasks/:id` - Eliminar tarea
+
+## 🛠️ Tecnologías Adicionales
+
+- **next/font**: Optimización de fuentes
+- **ESLint**: Linting y calidad de código
+- **PostCSS**: Procesamiento de CSS
+
+## 📦 Dependencias Principales
+
+```json
+{
+  "next": "^15.0.3",
+  "react": "^19.0.0",
+  "typescript": "^5",
+  "tailwindcss": "^3.4.1",
+  "axios": "^1.7.9",
+  "zod": "^3.24.1",
+  "react-hook-form": "^7.54.2"
+}
+```
+
+## 🌐 Navegación
+
+- `/` - Página de inicio (redirige a login)
+- `/auth/login` - Inicio de sesión
+- `/auth/register` - Registro de usuario
+- `/tasks` - Gestión de tareas (requiere autenticación)
+
+---
+
+**Desarrollado con ❤️ usando Next.js**
